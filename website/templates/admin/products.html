@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Products</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product Code</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Stock Quantity</th>
+                <th>Machine</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.product_code }}</td>
+                <td>{{ product.product_name }}</td>
+                <td>{{ product.price|round(2) }}</td>
+                <td>{{ product.stock_quantity }}
+                    <span class="badge rounded-pill text-bg-danger text-danger" {% if product.low_stock == false %} hidden {% endif %}>LOW STOCK !!</span>
+                </td>
+                <td>{{ product.machine }}</td>
+                <td>
+                    <a href="{{ url_for('views.edit_product', product_id=product.id) }}" class="btn btn-warning">Edit Stock</a>
+                    <form action="/admin/products/delete_product/{{product.id}}" method="POST">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

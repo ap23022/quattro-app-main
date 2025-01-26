@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1>Machines</h1>
+  {% for machine in machines %}
+    <a href="/customer/products/{{machine.id}}" class="btn btn-primary mb-2 col-2">{{machine.name}}</a>
+  {% endfor %}
+</div>
+{% endblock %}

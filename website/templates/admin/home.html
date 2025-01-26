@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}admin_Home{% endblock %}
+
+{% block content %}
+<h1>Welcome to the admin Home Page</h1>
+<div class="container">
+  <div class="d-flex flex-column align-items-start mt-5">
+    <a href="{{ url_for('views.orders') }}" class="btn btn-primary mb-2 col-2">ORDERS <span class="badge badge-danger">{{unapproved_orders}}</span></a>
+    <a href="/admin/products" class="btn btn-primary mb-2 col-2">PRODUCTS</a>
+    <a href="/admin/users" class="btn btn-primary mb-2 col-2">USERS</a>
+  </div>
+</div>
+
+  
+{% endblock %}
+
+
+

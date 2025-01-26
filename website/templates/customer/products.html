@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Products</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product Code</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.product_code }}</td>
+                <td>{{ product.product_name }}</td>
+                <td>{{ product.price|round(2) }}</td>
+                <td>
+
+                    <td>
+                        <button class="add-btn" data-productid="{{product.id}}" data-userid="{{current_user.id}}">Add to cart</button>
+                    </td>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

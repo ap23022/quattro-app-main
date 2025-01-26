@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1>Edit Order</h1>
+  <p>Order Id: {{customer_order.order_id}}</p>
+  <p>Customer Name: {{ customer_order.customer_name }}</p>
+  <p>Status: {{ customer_order.status }}</p>
+  <div class="order">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Price</td>
+        </tr>
+      </thead>
+      <tbody>
+  {% for product in customer_order.products %}
+        <tr>
+          <td>{{ product.name }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.price|round(2) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  <hr />
+</div>
+  <p>Total Price: {{customer_order.total_price|round(2)}}</p>
+  <form action="/admin/orders/{{customer_order.order_id}}" method="post">
+    <button type="submit" class="btn btn-primary mb-2 col-2" {% if customer_order.status == "approved" %}disabled {% endif %}>Approve Order</button>
+  </form>
+</div>
+{% endblock %}

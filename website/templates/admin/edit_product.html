@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Edit Product: {{ product.product_name }}</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="stock_added">stock added</label>
+            <input type="number" class="form-control" id="stock_added" name="stock_added" placeholder="add value to increase product" required>
+                <button type="button" id="increase_stock" data-productid="{{product.id}}">increase stock</button>
+        </div>
+        <div class="form-group">
+            <label for="stock_added">stock reduced</label>
+            <input type="number" class="form-control" id="stock_reduced" name="stock_reduced" placeholder="add value to reduce product" required>
+                <button type="button" id="reduce_stock" data-productid="{{product.id}}">reduce stock</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

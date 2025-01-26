@@ -1,0 +1,38 @@
+#Byte-compiled files
+pycache/
+*.py[cod]
+*$py.class
+
+#Virtual environment directories
+env/
+venv/
+
+#Flask cache and instance folder
+instance/
+*.db
+
+#System files
+.DS_Store
+Thumbs.db
+
+#Logs
+*.log
+
+#IDE settings (Optional, depending on your editor)
+.vscode/
+.idea/
+
+#Environment files
+.env
+*.env
+
+#Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+
+#Static files cache
+*.map
+*.css.map
+*.js.map
